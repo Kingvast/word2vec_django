@@ -1,6 +1,7 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import mixins, viewsets
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.permissions import IsAuthenticated
 
 from .filters import WordsFilter
 from .models import Word2Vec
@@ -21,6 +22,7 @@ class Word2VecListViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin,
     pagination_class = Word2VecPagination
     queryset = Word2Vec.objects.all().order_by('id')
     serializer_class = Word2VecSerializer
+    permission_classes = (IsAuthenticated, )
     filter_backends = (DjangoFilterBackend, )
     filter_class = WordsFilter
     search_fields = ('word', )
