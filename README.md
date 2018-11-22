@@ -1,5 +1,15 @@
 # word2vec_django
 
+## 依赖安装
+```
+克隆：git clone https://github.com/Kingvast/word2vec_django.git
+
+cd src/
+
+安装依赖：pip install -r requirements.txt
+
+```
+
 ## 获取所有词向量
 
 ```
@@ -54,6 +64,7 @@ GET http://example.com/v1/words/
 ```
 
 **截图**
+![](https://ws2.sinaimg.cn/large/006tNbRwgy1fxgyodg0osj31hg0u0dop.jpg)
 
 
 ## 通过单词查找对应词向量
@@ -90,10 +101,11 @@ GET http://example.com/v1/words/?word={word}
 ```
 
 **截图**
-
+![](https://ws3.sinaimg.cn/large/006tNbRwgy1fxgypgxxzmj31eg0u0dpo.jpg)
 
 ##测试
 ```
 python manage.py test
 ```
-### 测试结果
+**测试截图**
+![](https://ws2.sinaimg.cn/large/006tNbRwgy1fxgylfs6boj32380t6qkc.jpg)
