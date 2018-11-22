@@ -9,7 +9,7 @@ from .serializers import Word2VecSerializer
 
 class Word2VecPagination(PageNumberPagination):
     """
-    商品列表自定义分页
+    列表自定义分页
     """
     page_size = 5
     page_size_query_param = 'page_size'
