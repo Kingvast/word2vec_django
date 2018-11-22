@@ -103,7 +103,7 @@ GET http://example.com/v1/words/?word={word}
 **截图**
 ![](https://ws3.sinaimg.cn/large/006tNbRwgy1fxgypgxxzmj31eg0u0dpo.jpg)
 
-##测试
+## 测试
 ```
 python manage.py test
 ```
