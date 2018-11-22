@@ -4,7 +4,7 @@ from django.test import TestCase
 from .models import Word2Vec
 
 
-class MallTest(TestCase):
+class Word2VecTest(TestCase):
     def setUp(self):
         User.objects.create_user(
             username='test', email='a@b.com', password='testonly')
