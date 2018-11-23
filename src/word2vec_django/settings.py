@@ -29,17 +29,26 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'word2vec',
-    'rest_framework',
-    'django_filters',
-    'rest_framework.authtoken',
+    'django.contrib.admin', 'django.contrib.auth',
+    'django.contrib.contenttypes', 'django.contrib.sessions',
+    'django.contrib.messages', 'django.contrib.staticfiles', 'word2vec',
+    'rest_framework', 'django_filters', 'rest_framework.authtoken',
+    'rest_framework_swagger'
 ]
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'basic': {
+            'type': 'basic'
+        }
+    },
+    'LOGIN_URL': 'rest_framework:login',
+    'LOGOUT_URL': 'rest_framework:logout',
+    'APIS_SORTER': 'alpha',
+    'JSON_EDITOR': True,
+    'OPERATIONS_SORTER': 'alpha',
+    'VALIDATOR_URL': None,
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

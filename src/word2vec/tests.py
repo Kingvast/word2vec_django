@@ -43,6 +43,13 @@ class Word2VecTest(TestCase):
             '-0.81304 0.18712 -0.018488 -0.26757 0.727 -0.59363 -0.34839 '
             '-0.56094 -0.591 1.0039 0.20664')
 
+    def test_get_token(self):
+        response = self.client.post('/api-auth/login/', {
+            'username': 'test',
+            'password': 'testonly'
+        })
+        self.assertEqual(response.status_code, 302)
+
     def test_get_all_word2vec(self):
         response = self.client.post('/api-auth/login/', {
             'username': 'test',
@@ -55,13 +62,6 @@ class Word2VecTest(TestCase):
         print(data['results'])
         self.assertEqual(data['count'], 2)
 
-    def test_word_search_vec(self):
-        response = self.client.post('/api-auth/login/', {
-            'usernaem': 'test',
-            'password': 'testonly'
-        })
+    def test_word_search_vec_wrong(self):
         response = self.client.get('/v1/words/?word=the')
-        self.assertEqual(response.status_code, 200)
-        data = response.json()
-        print(data['results'])
-        self.assertEqual(data['count'], 1)
+        self.assertEqual(response.status_code, 403)

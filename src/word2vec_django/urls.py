@@ -17,8 +17,14 @@ from django.contrib import admin
 from django.urls import include, path, re_path
 from rest_framework.authtoken import views
 from rest_framework.routers import DefaultRouter
+from rest_framework.schemas import get_schema_view
+from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
 
 from word2vec.views import Word2VecListViewSet
+
+schema_view = get_schema_view(
+    title='Word2Vec API',
+    renderer_classes=[OpenAPIRenderer, SwaggerUIRenderer])
 
 router = DefaultRouter()
 
@@ -28,5 +34,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('api-token-auth/', views.obtain_auth_token),
+    path('docs/', schema_view, name='docs'),
     re_path(r'^', include(router.urls)),
 ]
