@@ -44,11 +44,13 @@ class Word2VecTest(TestCase):
             '-0.56094 -0.591 1.0039 0.20664')
 
     def test_get_token(self):
-        response = self.client.post('/api-auth/login/', {
+        response = self.client.post('/api-token-auth/', {
             'username': 'test',
             'password': 'testonly'
         })
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        print(data['token'])
 
     def test_get_all_word2vec(self):
         response = self.client.post('/api-auth/login/', {
